@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo - Adaptativo Móvil</title>
+  <link rel="stylesheet" href="/css/styless.css">
+</head>
+<body style="padding: 10px;">
+  <header style="padding: 0.75rem; background-color: #0f172a; color: white; text-align: center; border-radius: 6px; margin-bottom: 15px;">
+    <h1 style="margin: 0; font-size: 1.1rem;">Catálogo Móvil (AWD)</h1>
+    <nav style="margin-top: 8px; font-size: 0.9rem;">
+      <a href="#" style="color: #f3f4f6; margin: 0 10px; text-decoration: none;">Inicio</a>
+      <a href="#" style="color: #f3f4f6; margin: 0 10px; text-decoration: none;">Productos</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="catalog-grid">
+      <% products.forEach(product => { %>
+        <article class="card" style="margin-bottom: 15px;">
+          <img src="/imagenes/<%= product.image %>" alt="<%= product.title %>" style="width: 100%; height: auto;">
+          
+          <h3 style="font-size: 1rem;"><%= product.title %></h3>
+          
+          <table class="specs-table" style="font-size: 0.85rem;">
+            <tr><td><strong>CPU:</strong></td><td><%= product.specs.cpu %></td></tr>
+            <tr><td><strong>RAM:</strong></td><td><%= product.specs.ram %></td></tr>
+            <tr><td><strong>Almacenamiento:</strong></td><td><%= product.specs.storage %></td></tr>
+          </table>
+
+          <p><strong><%= product.price %></strong></p>
+          <button class="btn-buy" style="width: 100%;">Comprar</button>
+        </article>
+      <% }); %>
+    </section>
+  </main>
+</body>
+</html>

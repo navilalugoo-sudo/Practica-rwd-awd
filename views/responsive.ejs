@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogo 1 - RWD</title>
+  <link rel="stylesheet" href="/css/styless.css">
+  <style>
+    /* Ocultar el grafico mediante CSS en moviles para comprobar el desperdicio de transferencia en RWD */
+    @media (max-width: 640px) {
+      .chart-box {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: #0f172a; color: white;">
+    <h1 style="margin: 0; font-size: 1.25rem;">Catálogo de Hardware</h1>
+    <nav>
+      <a href="#" style="color: #f3f4f6; margin-left: 20px; text-decoration: none;">Inicio</a>
+      <a href="#" style="color: #f3f4f6; margin-left: 20px; text-decoration: none;">Productos</a>
+      <a href="#" style="color: #f3f4f6; margin-left: 20px; text-decoration: none;">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="layout-container">
+    <aside class="sidebar">
+      <h2>Filtros</h2>
+      <div class="performance-card">
+    <h3>Comparativa de rendimiento</h3>
+
+      
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; font-size: 0.9rem; margin-bottom: 5px;">Buscar</label>
+        <input type="text" placeholder="Nombre del producto" style="width: 100%; padding: 6px; border-radius: 4px; border: 1px solid #ccc;">
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; font-size: 0.9rem; margin-bottom: 5px;">Precio máximo: <strong>$50,000.00</strong></label>
+        <input type="range" min="0" max="50000" value="50000" style="width: 100%;">
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; font-size: 0.9rem; margin-bottom: 5px;">RAM mínima</label>
+        <select style="width: 100%; padding: 6px; border-radius: 4px; border: 1px solid #ccc;">
+          <option>Cualquiera</option>
+          <option>16 GB</option>
+          <option>32 GB</option>
+          <option>64 GB</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; font-size: 0.9rem; margin-bottom: 5px;">Almacenamiento mínimo</label>
+        <select style="width: 100%; padding: 6px; border-radius: 4px; border: 1px solid #ccc;">
+          <option>Cualquiera</option>
+          <option>512 GB SSD</option>
+          <option>1 TB SSD</option>
+        </select>
+      </div>
+
+        
+
+      <button style="width: 100%; padding: 8px; background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px; cursor: pointer; margin-bottom: 25px;">Limpiar filtros</button>
+
+      <h2>Comparación</h2>
+      <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 5px;">Productos.</p>
+
+        <div class="chart-container">
+        <div class="chart-row">
+            <span class="chart-label">Q64</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 95%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">Q32</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 70%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">G80</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 98%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">G48</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 75%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">D5-64</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 60%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">D5-128</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 78%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">N8</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 85%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">N4</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 68%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">100G</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 89%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">25G</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 58%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">1600</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 66%;"></div></div>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">800</span>
+            <div class="chart-bar-bg"><div class="chart-bar" style="width: 52%;"></div></div>
+        </div>
+    </div>
+</div>
+    </aside>
+
+    <section class="catalog-grid">
+      <% products.forEach(product => { %>
+        <article class="card">
+          <!-- Uso de <picture> y srcset para servir versiones ligeras -->
+          <picture>
+            <source media="(max-width: 640px)" srcset="/imagenes/<%= product.image %>">
+            <source media="(max-width: 1024px)" srcset="/imagenes/<%= product.image %>">
+            <img src="/imagenes/<%= product.image %>" alt="<%= product.title %>">
+          </picture>
+          
+          <h3><%= product.title %></h3>
+          
+          <table class="specs-table">
+            <tr><td><strong>CPU:</strong></td><td><%= product.specs.cpu %></td></tr>
+            <tr><td><strong>RAM:</strong></td><td><%= product.specs.ram %></td></tr>
+            <tr><td><strong>Almacenamiento:</strong></td><td><%= product.specs.storage %></td></tr>
+            <tr><td><strong>Fuente:</strong></td><td><%= product.specs.psu %></td></tr>
+          </table>
+
+          <p><strong><%= product.price %></strong></p>
+          <button class="btn-buy">Comprar</button>
+        </article>
+      <% }); %>
+    </section>
+  </main>
+</body>
+</html>

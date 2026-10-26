@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+header {
+  background-color: #1e293b;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.layout-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* Sidebar y Gráfico */
+.sidebar {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.chart-box {
+  margin-top: 1.5rem;
+  background: #e2e8f0;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #94a3b8;
+  font-weight: bold;
+}
+
+/* Cuadrícula de 12 Tarjetas */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+}
+
+.specs-table td {
+  border-bottom: 1px solid #eee;
+  padding: 4px 0;
+}
+
+.btn-buy {
+  margin-top: auto;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Breakpoints Responsivos (RWD) */
+@media (max-width: 1024px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .layout-container {
+    grid-template-columns: 1fr; /* Sidebar pasa arriba o abajo */
+  }
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+.sidebar form input[type="submit"] {
+  background-color: #2563eb; /* Color de fondo azul (puedes cambiarlo) */
+  color: #ffffff;            /* Color del texto en blanco */
+  border: none;              /* Quita el borde predeterminado gris */
+  padding: 0.5rem 1rem;      /* Espaciado interno para que no se vea tan pequeño */
+  border-radius: 4px;        /* Bordes ligeramente redondeados */
+  cursor: pointer;           /* Cambia el cursor a una manita al pasar por encima */
+  font-weight: bold;         /* Texto en negrita */
+  margin-top: 10px;          /* Separación respecto a los checkboxes */
+  transition: background-color 0.2s ease;
+}
+
+/* Efecto opcional al pasar el mouse por encima */
+.sidebar form input[type="submit"]:hover {
+  background-color: #1d4ed8; /* Un azul un poco más oscuro */
+}
+
+.performance-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.performance-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chart-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chart-label {
+    width: 60px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    text-align: right;
+}
+
+.chart-bar-bg {
+    flex: 1;
+    background-color: #f1f5f9;
+    border-radius: 4px;
+    height: 18px;
+    overflow: hidden;
+    position: relative;
+}
+
+.chart-bar {
+    height: 100%;
+    background-color: #2563eb; /* Azul corporativo similar a tu imagen */
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
